@@ -1,0 +1,13 @@
+.up {
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  .arrow-button {
+    @include arrow-button;
+  }
+  &.showButton {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,49 @@
+.gnb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 10;
+  color: $text;
+  transform: translate3d(0, -100%, 0);
+
+  backdrop-filter: blur(50px);
+  transition: all 200ms ease-in-out;
+  &.show-header {
+    transform: translate3d(0, 0, 0);
+  }
+  &.is-active {
+    a {
+      color: $brown;
+    }
+  }
+  &-header {
+    opacity: 0.8;
+    &-list {
+      @include flexbox(start);
+      position: relative;
+      // border-bottom: 1px solid $text;
+    }
+    &-item {
+      &:last-child {
+        @include pos-center-y;
+        right: 0;
+        a {
+          margin-right: 0;
+        }
+      }
+      a {
+        margin-right: 12vw;
+        padding: 2vh;
+        font-size: 1vw;
+        font-weight: 400;
+
+        transition: color 200ms ease-in-out;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

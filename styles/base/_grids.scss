@@ -1,0 +1,82 @@
+$breakpoint: 768px;
+$gutter: 20px;
+$sm-columns: 4;
+$sm-margin: 1.5%;
+
+$columns: 12;
+$margin: 4%;
+$max-container: 100vw;
+
+$grid-margin: 15px;
+
+@mixin responsive($screen) {
+  @if ($screen == 'T') {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin mobile-only() {
+  @media screen and (max-width: $breakpoint - 1px) {
+    @content;
+  }
+}
+
+.container {
+  width: 100vw;
+  padding: 0 $sm-margin;
+  margin: 0 auto;
+
+  .row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  [class^='col-'] {
+    padding: 0 $gutter/2;
+  }
+
+  @for $i from 1 through $sm-columns {
+    .col-sm-#{$i} {
+      width: percentage($i / $sm-columns);
+    }
+  }
+
+  @include responsive(T) {
+    max-width: $max-container;
+    padding: 0 $margin;
+
+    @for $i from 1 through $columns {
+      .col-#{$i} {
+        width: percentage($i / $columns);
+      }
+    }
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sm-only {
+  @media screen and (min-width: $breakpoint) {
+    display: none !important;
+  }
+}
+
+.sm-hidden {
+  @media screen and (max-width: $breakpoint - 1) {
+    display: none !important;
+  }
+}

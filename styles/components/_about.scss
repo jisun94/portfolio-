@@ -1,0 +1,56 @@
+.about {
+  height: auto;
+  padding: 10% 0;
+  transition: all 400ms ease-in-out;
+  &.showBg {
+    background-color: $text;
+  }
+  &-text {
+    color: $white;
+    opacity: 0;
+    transition: all 400ms ease-in-out;
+
+    &.showText {
+      @include animation(bottom-top);
+    }
+    .title {
+      margin-bottom: 5%;
+      font-size: 4vw;
+      font-weight: 300;
+    }
+    p {
+      font-size: 1.3vw;
+      font-weight: 200;
+    }
+  }
+
+  &-img {
+    opacity: 0;
+    transition: all 400ms ease-in-out;
+    &.showImg {
+      @include animation(left-right);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include mobile-only {
+    padding: 10vh 0;
+
+    &-text {
+      p {
+        font-size: 5.5vw;
+        font-family: 'Manrope';
+        font-weight: 100;
+      }
+    }
+
+    &-img {
+      margin-bottom: 10vh;
+    }
+  }
+}

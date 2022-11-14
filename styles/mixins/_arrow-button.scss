@@ -1,0 +1,36 @@
+@mixin arrow-button {
+  border: 1px solid $text;
+  width: 8vh;
+  height: 8vh;
+  border-radius: 50%;
+  color: $text;
+  transition: all 600ms ease-in-out;
+  a {
+    display: block;
+  }
+  span {
+    display: block;
+    font-size: 2.7vw;
+    font-weight: 200;
+    margin-bottom: 0.5vh;
+    color: $text;
+  }
+
+  &:hover {
+    a {
+      span {
+        color: $brown;
+      }
+    }
+    background-color: $text;
+    transform: translate3d(0, -10%, 0);
+  }
+
+  @include mobile-only {
+    width: 6vh;
+    height: 6vh;
+    span {
+      font-size: 7vw;
+    }
+  }
+}
